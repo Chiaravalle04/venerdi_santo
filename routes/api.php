@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// Controllers
+use App\Http\Controllers\Api\AnnouncementController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::name('api.')->group(function () {
+
+    Route::resource('announcements', AnnouncementController::class)->only(['index', 'show']);
+
 });
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
