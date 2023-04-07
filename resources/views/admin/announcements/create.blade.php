@@ -3,34 +3,46 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.hosts.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.announcements.store') }}" method="post" enctype="multipart/form-data">
     @csrf
-    {{-- NOME HOST --}}
+    {{-- CITTÀ --}}
     <div class="mb-3">
-        <label for="name" class="form-label">Nome:</label>
+        <label for="city" class="form-label">Città</label>
         <input
         required
         type="text"
         class="form-control"
-        name="name"
-        id="name"
+        name="city"
+        id="city"
         aria-describedby="name"
         placeholder="Inserisci nome host">
-        <div id="name" class="form-text">Il campo è obbligatorio</div>
+        <div id="city" class="form-text">Il campo è obbligatorio</div>
     </div>
     
-    {{-- COGNOME HOST --}}
+    {{-- PAESE --}}
     <div class="mb-3">
-        <label for="surname" class="form-label">Cognome:</label>
+        <label for="country" class="form-label">Paese</label>
         <input
         required
         type="text"
         class="form-control"
-        name="surname"
-        id="surname"
-        aria-describedby="surname"
+        name="country"
+        id="country"
+        aria-describedby="country"
         placeholder="Inserisci nome host">
-        <div id="surname" class="form-text">Il campo è obbligatorio</div>
+        <div id="country" class="form-text">Il campo è obbligatorio</div>
+    </div>
+    
+    {{-- PREZZO --}}
+    <div class="mb-3">
+        <label for="price" class="form-label">Prezzo</label>
+        <input
+        class="form-control"
+        required
+        type="number" 
+        name="price" 
+        id="price"
+        placeholder="Inserisci voto">
     </div>
     
     {{-- VOTO --}}
@@ -46,12 +58,6 @@
         min="0"
         max="5">
     </div>
-    
-    {{-- PRIVATO --}}
-    <select name="private" class="form-select" aria-label="Host privato">
-        <option value="1">Si</option>
-        <option value="0">No</option>
-    </select>
 
     {{-- IMMAGINE --}}
     <div class="mb-3">
@@ -76,6 +82,12 @@
         placeholder="Inserisci descrizione"></textarea>
         <div id="description" class="form-text">Il campo è obbligatorio</div>
     </div>
+
+    {{-- PRENOTATO --}}
+    <select name="booked" class="form-select" aria-label="Prenotato">
+        <option value="1">Si</option>
+        <option value="0">No</option>
+    </select>
 
     {{-- BOTTONE --}}
     <button type="submit" class="mb-5 btn btn-success">Crea</button>
