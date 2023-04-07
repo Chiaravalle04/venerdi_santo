@@ -29,7 +29,7 @@
                             No
                             @else
                             Yes
-                            @endif4
+                            @endif
                         </td>
                         <td>
                             <div>
