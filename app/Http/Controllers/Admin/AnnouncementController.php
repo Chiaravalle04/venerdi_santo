@@ -44,7 +44,6 @@ class AnnouncementController extends Controller
     public function store(StoreAnnouncementRequest $request)
     {
         $data = $request->validated();
-        dd($data);
 
         if (array_key_exists('image', $data)) {
 
