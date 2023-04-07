@@ -58,6 +58,11 @@
                                         <i class="fa-solid fa-person fa-lg fa-fw"></i> Hosts
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.announcements.index' ? 'bg-secondary' : '' }}" href="{{route('admin.announcements.index')}}">
+                                        <i class="fa-solid fa-person fa-lg fa-fw"></i> Announcements
+                                    </a>
+                                </li>
                             </ul>
 
 

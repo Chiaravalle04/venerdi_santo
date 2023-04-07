@@ -18,4 +18,9 @@ class Announcement extends Model
         'description',
         'booked',
     ];
+
+    public function host() {
+
+        return $this->belongsTo(Host::class);
+    }
 }

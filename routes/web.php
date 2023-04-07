@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // Controllers
 use App\Http\Controllers\Admin\PageController;
-
+use App\Http\Controllers\Admin\AnnouncementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('hosts', HostController::class);
+    Route::resource('announcements', AnnouncementController::class);
+
 });
 
 Route::middleware('auth')->group(function () {

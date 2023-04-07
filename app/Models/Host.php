@@ -17,4 +17,9 @@ class Host extends Model
         'image',
         'description',
     ];
+
+    public function announcements() {
+
+        return $this->hasMany(Announcement::class);
+    }
 }
