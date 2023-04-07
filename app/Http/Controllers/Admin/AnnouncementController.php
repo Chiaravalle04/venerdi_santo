@@ -103,7 +103,7 @@ class AnnouncementController extends Controller
 
         $announcement->update($data);
 
-        return redirect()->route('admin.announcements.show', $announcement->id)->with('success', 'Host modificato con successo');
+        return redirect()->route('admin.announcements.show', $announcement->id)->with('success', 'Annuncio modificato con successo');
 
     }
 
@@ -115,6 +115,8 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        //
+        $announcement->delete();
+
+        return redirect()->route('admin.announcements.index')->with('success', 'Annuncio eliminato con successo!');
     }
 }
