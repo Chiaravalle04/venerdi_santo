@@ -47,7 +47,7 @@
           type="number" 
           name="vote" 
           id="vote"
-          value="{{ old('vote', $comic->vote) }}"
+          value="{{ old('vote', $host->vote) }}"
           placeholder="Inserisci voto"
           min="0"
           max="5">
@@ -67,7 +67,7 @@
         type="file" 
         name="image" 
         id="image"
-        {{-- value="{{ old('description', $comic->description) }}" --}}
+        {{-- value="{{ old('description', $host->description) }}" --}}
         placeholder="Inserisci descrizione">
       </div>
 
