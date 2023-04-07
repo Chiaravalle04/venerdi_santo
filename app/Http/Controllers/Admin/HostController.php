@@ -86,7 +86,26 @@ class HostController extends Controller
      */
     public function update(UpdateHostRequest $request, Host $host)
     {
-        //
+        $data = $request->validated();
+
+        dd($data);
+
+        if (array_key_exists('image', $data)) {
+
+            $data['image'] = Storage::put('hosts', $data['image']);
+
+            if ($host->image) {
+
+                Storage::delete($host->image);
+
+            }
+
+        }
+
+        $host->update($data);
+
+        return redirect()->route('admin.hosts.show', $host->id)->with('success', 'Host modificato con successo');
+
     }
 
     /**

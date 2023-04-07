@@ -13,7 +13,7 @@ class UpdateHostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class UpdateHostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:100',
+            'surname' => 'required|max:100',
+            'vote' => 'required|min:0|max:5|numeric',
+            'private' => 'required|in:0, 1',
+            'image' => 'nullable|image|max:2048',
+            'description' => 'required|max:1000',
         ];
     }
 }
