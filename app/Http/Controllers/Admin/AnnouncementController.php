@@ -87,7 +87,24 @@ class AnnouncementController extends Controller
      */
     public function update(UpdateAnnouncementRequest $request, Announcement $announcement)
     {
-        //
+        $data = $request->validated();
+
+        if (array_key_exists('image', $data)) {
+
+            $data['image'] = Storage::put('announcements', $data['image']);
+
+            if ($announcement->image) {
+
+                Storage::delete($announcement->image);
+
+            }
+
+        }
+
+        $announcement->update($data);
+
+        return redirect()->route('admin.announcements.show', $announcement->id)->with('success', 'Host modificato con successo');
+
     }
 
     /**
