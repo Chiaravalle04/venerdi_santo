@@ -4,7 +4,7 @@
     <div class="container-fluid mt-4">
         <div>
             <div>
-                <a href="{{ route('admin.hosts.create') }}" class="btn btn-success d-flex justify-content-center text-center py-3">
+                <a href="{{ route('admin.hosts.create') }}" class="btn btn-success d-flex justify-content-center text-center py-3 px-1">
                     Aggiungi Host
                 </a>
             </div>
