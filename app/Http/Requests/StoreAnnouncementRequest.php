@@ -13,7 +13,7 @@ class StoreAnnouncementRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return  true;
     }
 
     /**
@@ -24,7 +24,13 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'city'=>'requrired|max:100',
+            'country'=>'requrired|max:100',
+            'price'=>'requrired|min:1|max:1000',
+            'vote'=>'requrired|min:0|max:5|numeric',
+            'image'=>'nullable|image|max:2048',
+            'description'=>'requrired|min:3|max:1000',
+            'booked'=>'requrired|in: 0, 1'
         ];
     }
 }
