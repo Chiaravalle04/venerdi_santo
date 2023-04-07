@@ -5,6 +5,14 @@
 <div class="my-5">
     <form action="{{ route('admin.announcements.store') }}" method="post" enctype="multipart/form-data">
     @csrf
+
+    <select name="host_id" class="form-select mb-3" aria-label="host">
+        @foreach ($hosts as $host)
+            <option value="{{ $host->id }}">{{ $host->name }} {{ $host->surname }}</option>
+        @endforeach
+    </select>
+
+    
     {{-- CITTÀ --}}
     <div class="mb-3">
         <label for="city" class="form-label">Città</label>

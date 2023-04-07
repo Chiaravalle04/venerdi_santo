@@ -37,7 +37,9 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('admin.announcements.create');
+        $hosts = Host::all();
+
+        return view('admin.announcements.create', compact('hosts'));
     }
 
     /**
@@ -50,13 +52,13 @@ class AnnouncementController extends Controller
     {
         $data = $request->validated();
 
+        dd($data);
+
         if (array_key_exists('image', $data)) {
 
             $data['image'] = Storage::put('announcements', $data['image']);
 
         }
-
-        dd($data);
 
         $newAnnouncement = Announcement::create($data);
 
