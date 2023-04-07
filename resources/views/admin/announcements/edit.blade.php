@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.announcements.update', $announcements->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.announcements.update', $announcement->id) }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
@@ -17,7 +17,7 @@
         class="form-control"
         name="city"
         id="city"
-        value="{{ old('city', $announcements->city) }}"
+        value="{{ old('city', $announcement->city) }}"
         aria-describedby="name"
         placeholder="Inserisci nome host">
         <div id="city" class="form-text">Il campo è obbligatorio</div>
@@ -32,7 +32,7 @@
         class="form-control"
         name="country"
         id="country"
-        value="{{ old('country', $announcements->country) }}"
+        value="{{ old('country', $announcement->country) }}"
         aria-describedby="country"
         placeholder="Inserisci nome host">
         <div id="country" class="form-text">Il campo è obbligatorio</div>
@@ -47,7 +47,7 @@
         type="number" 
         name="price" 
         id="price"
-        value="{{ old('price', $announcements->price) }}"
+        value="{{ old('price', $announcement->price) }}"
         placeholder="Inserisci voto">
     </div>
 
@@ -60,7 +60,7 @@
         type="number" 
         name="vote" 
         id="vote"
-        value="{{ old('vote', $announcements->vote) }}"
+        value="{{ old('vote', $announcement->vote) }}"
         placeholder="Inserisci voto"
         min="0"
         max="5">
@@ -87,7 +87,7 @@
         name="description"
         id="description"
         rows="6"
-        placeholder="Inserisci descrizione">{{ old('description', $host->description) }}</textarea>
+        placeholder="Inserisci descrizione">{{ old('description', $announcement->description) }}</textarea>
         <div id="description" class="form-text">Il campo è obbligatorio</div>
     </div>
 
