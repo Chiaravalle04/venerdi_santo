@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Host;
 use App\Http\Requests\StoreHostRequest;
 use App\Http\Requests\UpdateHostRequest;
@@ -15,7 +16,9 @@ class HostController extends Controller
      */
     public function index()
     {
-        //
+        $hosts = Host::all();
+
+        return view('admin.hosts.index', compact('hosts'));
     }
 
     /**
