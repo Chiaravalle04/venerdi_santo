@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 
 // Models
 use App\Models\Announcement;
+use App\Models\Host;
+
 // Helpers
 use Faker\Generator as Faker;
 use PhpParser\Node\Stmt\Foreach_;
@@ -21,7 +23,11 @@ class AnnouncementSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 0; $i < 20; $i++) {
+
+            $hostId = Host::inRandomOrder()->first()->id;
+
             Announcement::create([
+                'host_id' => $hostId,
                 'city'=> $faker->city(),
                 'country' => $faker->country(),
                 'price' => $faker->randomFloat(2, 10, 300),

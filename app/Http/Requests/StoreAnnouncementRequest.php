@@ -24,13 +24,13 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-            'city'=>'requrired|max:100',
-            'country'=>'requrired|max:100',
-            'price'=>'requrired|min:1|max:1000',
-            'vote'=>'requrired|min:0|max:5|numeric',
+            'city'=>'required|max:100',
+            'country'=>'required|max:100',
+            'price'=>'required|min:1|max:1000',
+            'vote'=>'required|min:0|max:5|numeric',
             'image'=>'nullable|image|max:2048',
-            'description'=>'requrired|min:3|max:1000',
-            'booked'=>'requrired|in: 0, 1'
+            'description'=>'required|min:3|max:1000',
+            'booked'=>'required|in:0,1'
         ];
     }
 }
