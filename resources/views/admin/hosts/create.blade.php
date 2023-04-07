@@ -3,12 +3,11 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.hosts.store') }}" method="post">
-
+    <form action="{{ route('admin.hosts.store') }}" method="post" enctype="multipart/form-data">
     @csrf
-
+    {{-- NOME HOST --}}
     <div class="mb-3">
-        <label for="name" class="form-label">Nome</label>
+        <label for="name" class="form-label">Nome:</label>
         <input
         required
         type="text"
@@ -16,12 +15,13 @@
         name="name"
         id="name"
         aria-describedby="name"
-        placeholder="Nome">
+        placeholder="Inserisci nome host">
         <div id="name" class="form-text">Il campo è obbligatorio</div>
     </div>
     
+    {{-- COGNOME HOST --}}
     <div class="mb-3">
-        <label for="name" class="form-label">Cognome</label>
+        <label for="surname" class="form-label">Cognome:</label>
         <input
         required
         type="text"
@@ -29,60 +29,42 @@
         name="surname"
         id="surname"
         aria-describedby="surname"
-        placeholder="Cognome">
+        placeholder="Inserisci nome host">
         <div id="surname" class="form-text">Il campo è obbligatorio</div>
     </div>
     
+    {{-- VOTO --}}
     <div class="mb-3">
-        <label for="name" class="form-label">Voto</label>
+        <label for="vote" class="form-label">Voto:</label>
         <input
-        required
-        type="number"
         class="form-control"
-        name="vote"
+        required
+        type="number" 
+        name="vote" 
         id="vote"
-        aria-describedby="vote"
-        placeholder="Voto">
-        <div id="vote" class="form-text">Il campo è obbligatorio</div>
+        placeholder="Inserisci voto"
+        min="0"
+        max="5">
     </div>
     
-    <div class="mb-3">
-        <label for="name" class="form-label">Privato</label>
-        <input
-        required
-        type="number"
-        class="form-control"
-        name="private"
-        id="private"
-        aria-describedby="private"
-        placeholder="Privato">
-        <div id="private" class="form-text">Il campo è obbligatorio</div>
-    </div>
+    {{-- PRIVATE SI/NO --}}
+    <select class="form-select" aria-label="Host privato">
+        <option value="1">Si</option>
+        <option value="0">No</option>
+    </select>
 
+    {{-- IMMAGINE --}}
     <div class="mb-3">
-        <label for="name" class="form-label">Immagine</label>
+        <label for="image" class="form-label">Immagine:</label>
         <input
-        required
-        type="text"
         class="form-control"
-        name="image"
+        type="file" 
+        name="image" 
         id="image"
-        aria-describedby="image"
-        placeholder="Immagine">
-        <select required
-        type="text"
-        class="form-control"
-        name="image"
-        id="image"
-        aria-describedby="image"
-        placeholder="Immagine"
-        >
-            <option value="0">No</option>
-            <option value="1">Si</option>
-        </select>
-        <div id="image" class="form-text">Il campo è obbligatorio</div>
+        placeholder="Inserisci descrizione">
     </div>
     
+    {{-- INPUT DESCRIPTION --}}
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione:</label>
         <textarea
@@ -91,9 +73,11 @@
         name="description"
         id="description"
         rows="6"
-        placeholder="Inserisci descrizione"></textarea>
+        placeholder="Inserisci descrizione">
+        <div id="description" class="form-text">Il campo è obbligatorio</div>
     </div>
 
+    {{-- BOTTONE --}}
     <button type="submit" class="mb-5 btn btn-success">Crea</button>
     </form>
 </div>
