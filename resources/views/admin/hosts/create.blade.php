@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.host') }}" method="post">
+    <form action="{{ route('admin.hosts.store') }}" method="post">
 
     @csrf
 
