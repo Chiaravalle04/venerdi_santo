@@ -31,7 +31,7 @@
                   prezzo: {{ $announcement->price }}€
                 </div>
 
-                <a href="{{ route('admin.announcement.index') }}" class="btn btn-info">
+                <a href="{{ route('admin.announcements.index') }}" class="btn btn-info my-2">
                     Torna indietro
                 </a>
 
