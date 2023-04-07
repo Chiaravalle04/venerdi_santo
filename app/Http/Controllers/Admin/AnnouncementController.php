@@ -7,6 +7,9 @@ use App\Models\Announcement;
 use App\Http\Requests\StoreAnnouncementRequest;
 use App\Http\Requests\UpdateAnnouncementRequest;
 
+// Helpers
+use Illuminate\Support\Facades\Storage;
+
 
 class AnnouncementController extends Controller
 {
@@ -40,9 +43,18 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
-        // $data = $request->validate();
+        $data = $request->validated();
+        dd($data);
 
+        if (array_key_exists('image', $data)) {
 
+            $data['image'] = Storage::put('announcements', $data['image']);
+
+        }
+
+        $newAnnouncement = Announcement::create($data);
+
+        return redirect()->route('admin.announcements.show', $newAnnouncement->id)->with('success', 'Annuncio aggiunto con successo');
     }
 
     /**
