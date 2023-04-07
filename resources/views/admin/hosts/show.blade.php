@@ -4,13 +4,13 @@
 <div class="container-fluid mt-4">
       <div class="row justify-content-center mb-4">
             <div class="col">
-                  @include('partials.success')
+                  {{-- @include('partials.success') --}}
 
                   <h2>{{ $host->name }} {{ $host->surname }}</h2>
 
                   <p>Voto: {{ $host->vote }}</p>
 
-                  <p>Voto: {{ $host->private }}</p>
+                  <p>Private: {{ $host->private }}</p>
                   
                   @if ($host->image)
                   <div>
@@ -24,7 +24,7 @@
                         Torna indietro
                   </a>
 
-                  <p>{{ $project->description }}</p>
+                  <p>{{ $host->description }}</p>
 
             </div>
       </div>
