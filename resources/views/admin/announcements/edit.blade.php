@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.announcements.update', $host->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.announcements.update', $announcements->id) }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
