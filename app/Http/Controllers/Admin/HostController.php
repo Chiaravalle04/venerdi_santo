@@ -28,7 +28,7 @@ class HostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.hosts.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class HostController extends Controller
      */
     public function show(Host $host)
     {
-        //
+        return view('admin.hosts.show', compact('host'));
     }
 
     /**
@@ -61,7 +61,7 @@ class HostController extends Controller
      */
     public function edit(Host $host)
     {
-        //
+        return view('admin.hosts.edit', compact('host'));
     }
 
     /**
