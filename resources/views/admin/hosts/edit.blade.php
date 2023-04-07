@@ -56,7 +56,7 @@
       </div>
 
       {{-- INPUT PRIVATE SI/NO --}}
-    <select class="form-select" aria-label="Host privato">
+    <select name="private" class="form-select" aria-label="Host privato">
         <option value="1">Si</option>
         <option value="0">No</option>
     </select>

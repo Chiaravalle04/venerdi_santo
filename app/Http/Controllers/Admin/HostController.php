@@ -88,8 +88,6 @@ class HostController extends Controller
     {
         $data = $request->validated();
 
-        dd($data);
-
         if (array_key_exists('image', $data)) {
 
             $data['image'] = Storage::put('hosts', $data['image']);
