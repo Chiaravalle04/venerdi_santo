@@ -29,7 +29,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('admin.annoucements.create');
+        return view('admin.announcements.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        return view('admin.announcements.edit', compact('host'));
+        return view('admin.announcements.edit', compact('announcement'));
     }
 
     /**
