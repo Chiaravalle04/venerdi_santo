@@ -4,8 +4,8 @@
     <div class="container-fluid mt-4">
         <div>
             <div>
-                <a href="{{ route('admin.hosts.create') }}" class="btn btn-success my-3 w-25">
-                    Aggiungi Host
+                <a href="{{ route('admin.announcements.create') }}" class="btn btn-success my-3 w-25">
+                    Aggiungi Annuncio
                 </a>
             </div>
         </div>
@@ -13,41 +13,41 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    <th scope="col">Private</th>
+                    <th scope="col">Host</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Price</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($hosts as $host)
+                @foreach ($announcements as $announcemet)
                     <tr>
-                        <th scope="row">{{ $host->id }}</th>
-                        <td>{{ $host->name }}</td>
-                        <td>{{ $host->surname }}</td>
-                        <td>
-                            @if ( $host->private == 0)
-                            No
+                        <th scope="row">{{ $announcemet->id }}</th>
+                            @if ( $announcemet->host_id)
+                                <td>{{ $announcemet->host_id }}</td>
                             @else
-                            Yes
+                                <td>NULL</td>
                             @endif
-                        </td>
+                        <td>{{ $announcemet->city }}</td>
+                        <td>{{ $announcemet->country }}</td>
+                        <td>{{ $announcemet->price }}</td>
                         <td>
                             <div>
-                                <a href="{{ route('admin.hosts.show', $host->id) }}" class="btn btn-primary">
+                                <a href="{{ route('admin.announcements.show', $announcemet->id) }}" class="btn btn-primary">
                                     Vedi Dettagli
                                 </a>
                             </div>
                         </td>
                         <td>
                             <div>
-                                <a href="{{ route('admin.hosts.edit', $host->id) }}" class="btn btn-warning mx-2">
+                                <a href="{{ route('admin.announcements.edit', $announcemet->id) }}" class="btn btn-warning mx-2">
                                     Modifica
                                 </a>
                             </div>
                         </td>
                         <td>
                             <div>
-                                <form action="{{ route('admin.hosts.destroy', $host->id) }}" method="POST"
+                                <form action="{{ route('admin.announcements.destroy', $announcemet->id) }}" method="POST"
                                     onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?')">
                                     @csrf
                                     @method('DELETE')
