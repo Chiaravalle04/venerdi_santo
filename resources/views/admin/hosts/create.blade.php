@@ -61,7 +61,7 @@
         type="file" 
         name="image" 
         id="image"
-        placeholder="Inserisci descrizione">
+        placeholder="Inserisci l'imaggine'">
     </div>
     
     {{-- INPUT DESCRIPTION --}}
