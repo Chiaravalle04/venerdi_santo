@@ -7,6 +7,9 @@ use App\Models\Host;
 use App\Http\Requests\StoreHostRequest;
 use App\Http\Requests\UpdateHostRequest;
 
+// Helpers
+use Illuminate\Support\Facades\Storage;
+
 class HostController extends Controller
 {
     /**
@@ -39,7 +42,17 @@ class HostController extends Controller
      */
     public function store(StoreHostRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if (array_key_exists('image', $data)) {
+
+            $data['image'] = Storage::put('hosts', $data['image']);
+
+        }
+
+        $newHost = Host::create($data);
+
+        return redirect()->route('admin.hosts.show', $newHost->id)->with('success', 'Host aggiunto con successo');
     }
 
     /**
