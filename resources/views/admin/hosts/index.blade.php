@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container-fluid mt-4">
+        <div>
+            <div>
+                <a href="{{ route('admin.hosts.create') }}" class="btn btn-success d-flex justify-content-center text-center py-3">
+                    Aggiungi Host
+                </a>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -17,7 +24,13 @@
                         <th scope="row">{{ $host->id }}</th>
                         <td>{{ $host->name }}</td>
                         <td>{{ $host->surname }}</td>
-                        <td>{{ $host->private }}</td>
+                        <td>
+                            @if ( $host->private == 0)
+                            No
+                            @else
+                            Yes
+                            @endif4
+                        </td>
                         <td>
                             <div>
                                 <a href="{{ route('admin.hosts.show', $host->id) }}" class="btn btn-primary">
