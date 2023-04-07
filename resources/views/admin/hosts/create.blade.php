@@ -47,7 +47,7 @@
         max="5">
     </div>
     
-    {{-- PRIVATE SI/NO --}}
+    {{-- PRIVATO --}}
     <select class="form-select" aria-label="Host privato">
         <option value="1">Si</option>
         <option value="0">No</option>
@@ -64,7 +64,7 @@
         placeholder="Inserisci l'imaggine'">
     </div>
     
-    {{-- INPUT DESCRIPTION --}}
+    {{-- DESCRIZIONE --}}
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione:</label>
         <textarea
@@ -73,7 +73,7 @@
         name="description"
         id="description"
         rows="6"
-        placeholder="Inserisci descrizione">
+        placeholder="Inserisci descrizione"></textarea>
         <div id="description" class="form-text">Il campo è obbligatorio</div>
     </div>
 
