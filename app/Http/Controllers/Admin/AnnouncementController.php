@@ -7,6 +7,9 @@ use App\Models\Announcement;
 use App\Http\Requests\StoreAnnouncementRequest;
 use App\Http\Requests\UpdateAnnouncementRequest;
 
+// Models
+use App\Models\Host;
+
 // Helpers
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +25,9 @@ class AnnouncementController extends Controller
     {
         $announcements = Announcement::all();
 
-        return view('admin.announcements.index', compact('announcements'));
+        $hosts = Host::all();
+
+        return view('admin.announcements.index', compact('announcements', 'hosts'));
     }
 
     /**
@@ -64,7 +69,9 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        return view('admin.announcements.show', compact('announcement'));
+        $hosts = $announcement->host;
+
+        return view('admin.announcements.show', compact('announcement', 'hosts'));
     }
 
     /**

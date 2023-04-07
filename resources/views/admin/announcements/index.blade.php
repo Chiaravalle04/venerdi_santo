@@ -24,13 +24,13 @@
                     <tr>
                         <th scope="row">{{ $announcemet->id }}</th>
                             @if ( $announcemet->host_id)
-                                <td>{{ $announcemet->host_id }}</td>
+                                <td>{{ $announcemet->host->name }} {{ $announcemet->host->surname }}</td>
                             @else
                                 <td>NULL</td>
                             @endif
                         <td>{{ $announcemet->city }}</td>
                         <td>{{ $announcemet->country }}</td>
-                        <td>{{ $announcemet->price }}</td>
+                        <td>€ {{ $announcemet->price }}</td>
                         <td>
                             <div>
                                 <a href="{{ route('admin.announcements.show', $announcemet->id) }}" class="btn btn-primary">
