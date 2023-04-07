@@ -24,6 +24,7 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
+            'host_id'=> 'nullable',
             'city'=>'required|max:100',
             'country'=>'required|max:100',
             'price'=>'required|min:1|max:1000',
