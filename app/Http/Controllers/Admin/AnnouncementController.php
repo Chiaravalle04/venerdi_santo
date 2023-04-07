@@ -84,7 +84,9 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        return view('admin.announcements.edit', compact('announcement'));
+        $hosts = Host::all();
+
+        return view('admin.announcements.edit', compact('announcement', 'hosts'));
     }
 
     /**

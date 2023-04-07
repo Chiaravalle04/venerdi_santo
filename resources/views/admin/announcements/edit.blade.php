@@ -8,6 +8,13 @@
     @csrf
 
     @method('put')
+
+    <select name="host_id" class="form-select mb-3" aria-label="host">
+        @foreach ($hosts as $host)
+            <option value="{{ $host->id }}" {{ old('host_id', $announcement->host_id) == $host->id ? 'selected' : '' }}>{{ $host->name }} {{ $host->surname }}</option>
+        @endforeach
+    </select>
+
     {{-- CITTÀ --}}
     <div class="mb-3">
         <label for="city" class="form-label">Città</label>
