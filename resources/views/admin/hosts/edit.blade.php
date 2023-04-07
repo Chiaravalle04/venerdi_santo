@@ -32,7 +32,7 @@
         class="form-control"
         name="surname"
         id="surname"
-        value="{{ old('surname', $host->name) }}"
+        value="{{ old('surname', $host->surname) }}"
         aria-describedby="surname"
         placeholder="Inserisci nome host">
         <div id="surname" class="form-text">Il campo è obbligatorio</div>
