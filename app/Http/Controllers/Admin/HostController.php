@@ -114,6 +114,8 @@ class HostController extends Controller
      */
     public function destroy(Host $host)
     {
-        //
+        $host->delete();
+
+        return redirect()->route('admin.hosts.index')->with('success', 'Host eliminato con successo');;
     }
 }
