@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="my-5">
-    <form action="{{ route('admin.hosts.update', $host->id) }}" method="post">
+    <form action="{{ route('admin.hosts.update', $host->id) }}"
+        method="post"
+        enctype="multipart/form-data">
 
       @csrf
 
@@ -68,7 +70,7 @@
         name="image" 
         id="image"
         {{-- value="{{ old('description', $host->description) }}" --}}
-        placeholder="Inserisci descrizione">
+        placeholder="Inserisci immagine">
       </div>
 
       {{-- INPUT DESCRIPTION --}}
