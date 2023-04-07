@@ -44,13 +44,14 @@ class AnnouncementController extends Controller
     public function store(StoreAnnouncementRequest $request)
     {
         $data = $request->validated();
-        dd($data);
 
         if (array_key_exists('image', $data)) {
 
             $data['image'] = Storage::put('announcements', $data['image']);
 
         }
+
+        dd($data);
 
         $newAnnouncement = Announcement::create($data);
 
